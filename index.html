@@ -1,14 +1,647 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MD SHAHIN ISLAM</title>
-    
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MD SHAHIN ISLAM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="https://i.ibb.co.com/ds33S8Db/1723314004088-2.jpg" title="MD SHAHIN ISLAM" type="" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+ <style>
+    body {
+      font-family: serif;
+      
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      zoom: 2.8; 
+      background: linear-gradient(to bottom right, #c8ffd5, #ffcfcf);
 
+    }
+  Button: hover {
+       background-color: #00ccff;
+     }
+    #passwordForm{
+      height: 600px;
+    }
+    h2 {
+      color: #333;
+      margin-top: 30px;
+    }
+    p{
+     margin: 10px;
+     border: 0.5px dotted gray;
+     padding: 6px;
+     font-size: 22px;
+     display: flex;
+    }
+
+    form {
+      background: none;
+      padding: px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: %;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="date"], input[type="number"], input[type="button"], input[type="password"] {
+      width: 80%;
+      padding: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    input[type="button"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      width: ;
+      margin: 10px ;
+      border-collapse: collapse;
+      background: none;
+      border-radius: ;
+      box-shadow: 0px 0px 5px ,
+                   -0px -0px 5px;
+      border: none;
+      padding: 5px;
+     
+    }
+
+    th, td {
+      text-align: left;
+      padding: 9px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #88ffaa;
+    }
+    h2{
+     text-align: center;
+    }
+
+    #displayArea {
+      margin-top: 30px;
+      text-align: left;
+      font-size: 18px;
+      color: #333;
+      
+    }
+
+    #displayArea > p { /* Style for the summary data */
+      font-size: 20px;
+      margin-top: px;
+      font-weight: 500;
+    }
+    
+      #myForm {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+  }
+  /* Close button */
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: red;
+  font-size: 30px;
+  cursor: pointer;
+}
+ #clickTarget{
+        height: 85px;
+        width: 85px;
+        padding: 2.5px;
+        background: linear-gradient(to bottom right, #c8ffd5, #ffcfcf);
+        border-radius: 50%;
+        box-shadow: 1px 15px 20px ,
+                   -1px -1px 20px ;
+        margin-top: 70px;
+        
+      }
+      .nazrul{
+        padding-bottom: 14px;
+        padding-top: 14px;
+        height: 88%;
+        width: 92%;
+        background: none;
+        margin-left: 4%;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px ,
+                   -0px -0px 10px;
+        font-size: 25px;
+        margin-top: -13px;
+        margin-bottom: 20px;
+        font-family: ;
+      }
+      select{
+       margin-bottom: 10px;
+       padding: 5px;
+       height: 40px;
+       width: 69%;
+       background: none;
+       font-family: serif;
+       border: 0.5px solid ;
+       font-size: 20px;
+       border-radius: 5px;
+      }
+      textarea{
+       margin-top:12px;
+       padding: 22px;
+       height: 380px;
+       width: 85%;
+       background: none;
+       margin-bottom: 29px;
+       border:  3px dotted ;
+       font-size: 15px;
+       font-family: Serif;
+       zoom: 0.5;
+      }
+      
+      .tw{
+       margin-top: 10px;
+       margin-bottom: 11px;
+       background-color: #4CAF50;
+       margin-right: 25px;
+       border: none;
+       border-radius: 3px;
+       padding: 5px;
+       color: #fff;
+
+      }
+      footer {
+        background-color: #337;
+        color: #fff;
+        padding: 10px;
+        text-align: ;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        text-align: ;
+      }
+
+      .showButton {
+        background-color: #4CAF50;
+        color: white;
+        padding: 7px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 25px;
+        position: relative;
+        left: 80%;
+        right: 10%;
+      }
+      .showButton:hover {
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+    .week{
+    font-size: 15px;
+    font-style: italic;
+    font-family: 'Noto Sans Bengali';
+    font-weight: 250;
+    border: 0.5px dotted gray;
+    text-align: justify;
+    margin: 10px;
+    padding: 10px;
+    }
+    .bismillah{
+      position: fixed;
+      left: 15%;
+      box-shadow: 0px 0px 10px ,
+                   -0px -0px 10px;
+      border: 1px solid ;
+      background: linear-gradient(to bottom right, #c8ffd5, #ffcfcf);
+      width: 240px;
+      padding: 5px;
+      padding-top: 40px;
+      border-radius: 8px;
+      margin-top: -30px;
+     
+    }
+    
+          .dot{
+        display: ;
+        margin-left: 15px;
+      }
+      .number{
+        display: none;
+        font-weight: bold;
+        margin-left: 15px;
+      }
+  </style>
+
+
+
+</head>
+<body>
+  <h2 class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h2>  
+  <img id="clickTarget" src="https://i.ibb.co.com/ds33S8Db/1723314004088-2.jpg" alt="" />
+  <div class="nazrul">
+    MD SHAHIN ISLAM
+  </div>
+
+  <!-- Password Input -->
+  <div id="passwordForm" style="margin-top: 20px;">
+    <label for="password">Enter Password:</label>
+    <input type="password" id="password" name="password" required>
+    <input type="button" value="Verify it's you" onclick="checkPassword()">
+  </div>
+
+  <!-- Your Existing Content -->
+  <div id="content" style="display: none;"> <!-- Initially hidden -->
+    <div id="myForm" class="">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+      <form id="uploadForm">
+        <label for="text1">Date:</label>
+        <input type="date" id="text1" name="text1" required="required">
+
+        <label for="text2">Half:</label>
+        <input type="number" id="text2" name="text2">
+
+        <label for="text3">Full:</label>
+        <input type="number" id="text3" name="text3">
+
+        <label for="text4">Paid:</label>
+        <input type="number" id="text4" name="text4" required="required">
+
+        <input type="hidden" id="text5" name="text5"> 
+        <input type="hidden" id="text6" name="text6">  
+
+        <input type="button" value="Upload" onclick="uploadData()">
+      </form>
+    </div>
+
+
+        
+     <div class="week">Start ( 01-07-2025 ) থেকে Eid ( 20-03-2025 ) পর্যন্ত মোট<strong id="result1"></strong> সপ্তাহ, তন্মধ্যে অতিবাহিত হয়েছে <strong id="result2"></strong> সপ্তাহ , আর Eid পর্যন্ত বাকি আছে  <strong id="result3"></strong> সপ্তাহ।</div>
+     
+    <div id="displayArea"></div>
+
+<div style="display: none;">
+    <h1>Week Calculator</h1>
+
+    <div class="input-group">
+        <label for="startDate1">Start:</label>
+        <input type="date" id="startDate1" value="2025-07-05">
+    </div>
+    <div class="input-group">
+        <label for="endDate1">Eid:</label>
+        <input type="date" id="endDate1" value="2026-03-20">
+    </div>
+    <div class="input-group">
+        <label for="startDate2">Start:</label>
+        <input type="date" id="startDate2" value="2025-07-05">
+    </div>
+    <div class="input-group">
+        <label for="endDate2">Today:</label>
+        <input type="date" id="endDate2">
+    </div>
+    <div class="input-group">
+        <label for="startDate3">Today:</label>
+        <input type="date" id="startDate3">
+    </div>
+    <div class="input-group">
+        <label for="endDate3">Eid:</label>
+        <input type="date" id="endDate3" value="2026-03-20">
+    </div>
+
+    <button onclick="calculateWeeks()">Calculate Weeks</button>
+
+
+</div>
+    
+<br/><br/><br/>
+    <footer>
+      © 2024 created by . MD NAZRUL ISLAM.
+    </footer>
+  </div>
+
+  
+
+<script>
+  // Your Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDMtl_OolzCM699u8GsXYByKGzCdZcZE0g",
+    authDomain: "income-details-7831b.firebaseapp.com",
+    databaseURL: "https://income-details-7831b-default-rtdb.firebaseio.com",
+    projectId: "income-details-7831b",
+    storageBucket: "income-details-7831b.appspot.com",
+    messagingSenderId: "879276775958",
+    appId: "1:879276775958:web:14546def9134efc5c4b337"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+  const folderSelect = document.getElementById("folderSelect");
+  const textArea = document.getElementById('textArea');
+
+  let clickCount = 0;
+  const clickTarget = document.getElementById('clickTarget');
+  const myForm = document.getElementById('myForm');
+
+  clickTarget.addEventListener('click', () => {
+    clickCount++;
+    if (clickCount === 1) {
+      myForm.style.display = 'block';
+      clickCount = 0;
+    }
+  });
+
+  function uploadData() {
+    const text1 = document.getElementById("text1").value;
+    const text2 = parseFloat(document.getElementById("text2").value);
+    const text3 = parseFloat(document.getElementById("text3").value);
+    const text4 = parseFloat(document.getElementById("text4").value);
+    const text5 = parseFloat(document.getElementById("text2").value) + parseFloat(document.getElementById("text3").value);
+    const text6 = (text2 * 23) + (text3 * 25); // Calculate text6 value
+
+    if (!text1 || !text4) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill all required fields.'
+      });
+      return;
+    }
+
+    const data = {
+      text1: text1,
+      text2: text2,
+      text3: text3,
+      text4: text4,
+      text5: text5,
+      text6: text6 // Include text6 in the data object
+    };
+
+    database.ref("Shahin").push(data)
+      .then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Data Uploaded!',
+          text: 'Data uploaded successfully!'
+        });
+        document.getElementById("uploadForm").reset();
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+        console.error("Error uploading data:", error);
+      });
+  }
+
+  function displayData(folderPath = "Shahin") {
+    const dataRef = database.ref(folderPath);
+
+    dataRef.on("value", (snapshot) => {
+      const data = snapshot.val();
+      let output = "<table><thead><tr><th>তারিখ</th><th>হাপ</th><th>ফুল</th><th>আয়</th><th>খরচ</th><th>মাল</th></tr></thead><tbody>";
+
+      let totalText4 = 0;
+      let totalText2 = 0;
+      let totalText3 = 0;
+      let totalWork = 0; 
+
+      if (data) {
+        // No need to sort, just iterate in the order data appears in the database
+        for (const key in data) {
+          const value = data[key];
+          totalText4 += parseFloat(value.text4);
+          totalText2 += parseFloat(value.text2);
+          totalText3 += parseFloat(value.text3);
+          totalWork += value.text6;  // Use text6 for income
+          output += `<tr><td>${value.text1}</td><td>${value.text2}</td><td>${value.text3}</td><td>${value.text6}</td><td>${value.text4}</td><td>${value.text5}</td></tr>`;
+           }  
+        output += "</tbody></table><br><hr>";
+
+
+        const fixedStartDate = new Date('2025-07-05'); // Start
+      const today = new Date(); 
+      const daysDiff = Math.floor((today - fixedStartDate) / (1000 * 60 * 60 * 24));
+
+      // Calculate the average income per day
+      const averageIncome = totalWork / daysDiff;
+        //p tag সমূহ
+        output += `<div>
+        <h2>মোট হিসাব সমূহ:</h2>
+        <p>মোট আয়: <span class="number">${totalWork}</span><span class="dot">***</span></p>
+        <p>মোট খরচ: <span class="number">${totalText4}</span><span class="dot">***</span></p>
+        <p>মোট পাওনা: <span class="number">${totalWork - totalText4}</span><span class="dot">***</span></p>
+        <p>মোট মাল: <span class="number">${totalText2 + totalText3}</span><span class="dot">***</span></p>
+        <p>মোট হাফ: <span class="number">${totalText2}</span><span class="dot">***</span></p>
+        <p>মোট ফুল: <span class="number">${totalText3}</span><span class="dot">***</span></p>
+        
+        <p>মোট সপ্তাহ:<span class="number"> ${Object.keys(data).length}</span><span class="dot">***</span></p>
+        <p>মোট দিন: <span class="number">${daysDiff}</span><span class="dot">***</span></p>
+          
+        <p>প্রতিদিনের আয়: <span class="number">${averageIncome.toFixed(2)}</span><span class="dot">***</span></p>
+        
+        <button class="showButton" id="showButton" onclick="toggleVisibility()"><i class="fa fa-eye"></button></div>`; 
+        
+        document.getElementById("displayArea").innerHTML = output;
+      } else {
+        document.getElementById("displayArea").innerHTML = "No data found.";
+      }
+    });
+  }
+
+  function populateFolderSelect() {
+    database.ref('Nazrul').on("value", (snapshot) => {
+      const folders = snapshot.val();
+      folderSelect.innerHTML = ''; // Clear existing options
+
+      // Create options for each folder in reverse order
+      const folderKeys = Object.keys(folders).reverse();
+      for (const folder of folderKeys) {
+        // Construct the full path to the folder
+        const fullFolderPath = `Nazrul/${folder}`; 
+        folderSelect.innerHTML += `<option value="${fullFolderPath}">${folder}</option>`; 
+      }
+
+      // Select the default folder (the latest one, based on options order)
+      folderSelect.selectedIndex = 0; 
+    });
+  }
+
+  folderSelect.addEventListener("change", () => {
+    const selectedFolder = folderSelect.value;
+    displayData(selectedFolder);
+  });
+
+  function saveData() {
+    const text = textArea.value;
+    database.ref('textData/text').set(text)
+      .then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Text Saved!',
+          text: 'Your text has been saved.'
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+        console.error("Error saving text:", error);
+      });
+  }
+
+  // Load text from database on page load
+  database.ref('textData/text').on('value', (snapshot) => {
+    const text = snapshot.val();
+    if (text) {
+      textArea.value = text;
+    }
+  });
+
+  // Password Verification Logic
+  function checkPassword() {
+    const password = document.getElementById("password").value;
+    const correctPassword = "sss"; // Replace with your actual password
+
+    if (password === correctPassword) {
+      document.getElementById("passwordForm").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      populateFolderSelect();
+      displayData();
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Incorrect Password',
+        text: 'Please enter the correct password.'
+      });
+    }
+  }
+
+
+
+  window.onload = () => {
+    // PopulateFolderSelect();
+    // displayData();
+  };
+</script>
+
+<script>
+    function calculateWeeks() {
+        const startDate1 = new Date(document.getElementById("startDate1").value);
+        const endDate1 = new Date(document.getElementById("endDate1").value);
+        const startDate2 = new Date(document.getElementById("startDate2").value);
+        const endDate2 = new Date(document.getElementById("endDate2").value);
+        const startDate3 = new Date(document.getElementById("startDate3").value);
+        const endDate3 = new Date(document.getElementById("endDate3").value);
+
+        // Validation (you can customize this)
+        if (!validateDates(startDate1, endDate1) ||
+            !validateDates(startDate2, endDate2) ||
+            !validateDates(startDate3, endDate3)) {
+            alert("Please enter valid dates for all input fields.");
+            return;
+        }
+
+        // Calculate weeks for each input set
+        calculateAndDisplayResult(startDate1, endDate1, "result1");
+        calculateAndDisplayResult(startDate2, endDate2, "result2");
+        calculateAndDisplayResult(startDate3, endDate3, "result3");
+    }
+
+    function validateDates(startDate, endDate) {
+        return startDate && endDate && startDate <= endDate;
+    }
+
+    function calculateAndDisplayResult(startDate, endDate, resultId) {
+        const timeDiff = Math.abs(endDate - startDate);
+        const weekDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7));
+        document.getElementById(resultId).innerText = ` ${weekDiff}`;
+    }
+
+    // আজকের তারিখ সেট করা
+    function getTodayDate() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        } 
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        } 
+
+        today = yyyy + '-' + mm + '-' + dd;
+
+        return today;
+    }
+
+    function initCalculator() {
+        // Set default dates
+        document.getElementById('endDate2').value = getTodayDate();
+        document.getElementById('startDate3').value = getTodayDate();
+
+        // Now call calculateWeeks()
+        calculateWeeks();
+    }
+
+    // পেজ লোড হলেই আজকের তারিখ সেট করা
+    window.onload = initCalculator; 
+</script>
+    <script>
+
+        function toggleVisibility() {
+    var dots = document.querySelectorAll('.dot');
+    var numbers = document.querySelectorAll('.number');
+    
+    dots.forEach(dot => {
+      if (dot.style.display === 'none') {
+        dot.style.display = 'block';
+      } else {
+        dot.style.display = 'none';
+      }
+    });
+
+    numbers.forEach(number => {
+      if (number.style.display === 'block') {
+        number.style.display = 'none';
+      } else {
+        number.style.display = 'block';
+      }
+    });
+  }
+    </script>
+</body>
+  </htm>
